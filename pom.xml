@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>AppiumFrameworkDesignDemo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>AppiumFrameworkDesignDemo</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>20</maven.compiler.source>
+    <maven.compiler.target>20</maven.compiler.target>
+  </properties>
+
+
+
+  <dependencies>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+
+
+    <dependency>
+      <groupId>io.appium</groupId>
+      <artifactId>java-client</artifactId>
+      <version>9.2.3</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.testng/testng // I just changed the Test ng version from 7.10.2 to 6.14.3 bcz it is not implementing of ITestListener Interface -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.14.3</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>2.0.13</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-support</artifactId>
+      <version>4.22.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.16.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.18.0-rc1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>5.1.2</version>
+    </dependency>
+  </dependencies>
+
+  <!---Currently we are running test using xml and now run all test cases using maven commands bcz when we apply Jenkins and CI/CD we have to run using commands-->
+
+  <!--Point 1 . The purpose of making profile is that as we know we have to xml files. One that execute all cases and other that execute smoke case,
+  so, we create 2 profiles and give them "id" by using id will run maven command on terminal and execute the test cases-->
+
+  <!--Point 2. We have to install some dependency to run xml file through terminal . We can google "testNg xml maven" -> "Using Suite XML Files" -> Just copy paste that <build><pluginmanagement>Paste Here in b/w these tags</pluginmanagement></build> -->
+  <!--Point 3. After executing Point 1 and Point 2 we can run xml through maven commands using terminal. Before we have to make sure we have installed maven in our
+  system
+  Step 1 - To check maven is installed or not (mvn -v) hit this command in terminal.
+  Step 2 - If not added then install and set env variable of it
+  Step 3 - Then run command (mvn test -P(Id name) ex - mvn test -PRegression  -->
+
+
+  <profiles>
+    <profile>
+      <id>Regression</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.5.0</version>
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>TestNGSuites/testing.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+    <profile>
+      <id>Smoke</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.5.0</version>
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>TestNGSuites/testing_Smoke.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+
+    </profile>
+  </profiles>
+
+</project>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="smoke_suite">
+
+<!---The purpose adding group here because suppose you have 1000 test case for the new build you have run only regression or smoke test case
+then in that we will give another "tag" to testcase and give them a name now , then  this xml will help in running only those test cases -->
+
+<groups>
+    <run>
+        <include name="Smoke"/>
+    </run>
+</groups>
+
+
+
+
+<listeners>
+<listener class-name="org.example.TestUtils.Listeners"/>
+</listeners>
+
+
+        <!---Give Separate Name for each test so , that it will be easy for reporting-->
+<test name="General Store Hybrid Test Case" thread-count="1">
+<classes>
+    <class name="org.example.Module.HybridTestCase"></class>
+    <class name="org.example.Module.IOSBasicsTest"></class>
+</classes>
+</test>
+
+<test name="UI Catalog IOS Test" thread-count="1">
+<classes>
+    <class name="org.example.Module.HybridTestCase"></class>
+    <class name="org.example.Module.IOSBasicsTest"></class>
+</classes>
+</test>
+        </suite>

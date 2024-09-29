@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+    <listeners>
+        <listener class-name="org.example.TestUtils.Listeners"/>
+    </listeners>
+
+
+    <!---Give Separate Name for each test so , that it will be easy for reporting-->
+    <test name="General Store Hybrid Test Case" thread-count="1">
+        <classes>
+            <class name="org.example.Module.HybridTestCase"></class>
+            <class name="org.example.Module.IOSBasicsTest"></class>
+        </classes>
+    </test>
+
+    <test name="UI Catalog IOS Test" thread-count="1">
+        <classes>
+            <class name="org.example.Module.HybridTestCase"></class>
+            <class name="org.example.Module.IOSBasicsTest"></class>
+        </classes>
+    </test>
+</suite>

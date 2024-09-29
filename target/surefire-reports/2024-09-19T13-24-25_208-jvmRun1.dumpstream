@@ -1,0 +1,9 @@
+# Created at 2024-09-19T14:14:29.634
+java.net.http.HttpTimeoutException: request timed out
+Build info: version: '4.24.0', revision: '748ffc9bc3'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '20.0.2'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [b97776d4-31a5-4a90-afdc-ac8b8b52b76a, screenshot {}]
+Capabilities {appium:app: /Users/punchh_divyanshu/Des..., appium:appPackage: com.androidsample.generalstore, appium:automationName: UIAutomator2, appium:chromedriverExecutable: /Users/punchh_divyanshu/Dow..., appium:databaseEnabled: false, appium:desired: {app: /Users/punchh_divyanshu/Des..., automationName: UIAutomator2, chromedriverExecutable: /Users/punchh_divyanshu/Dow..., deviceName: Pixel 8 API 33 Emulator, platformName: ANDROID}, appium:deviceApiLevel: 33, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_arm64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.625, appium:platformVersion: 13, appium:statBarHeight: 136, appium:takesScreenshot: true, appium:viewportRect: {height: 2264, left: 0, top: 136, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: b97776d4-31a5-4a90-afdc-ac8b8b52b76a
+
